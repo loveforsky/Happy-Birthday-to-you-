@@ -1,0 +1,382 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    font-family: Arial;
+    background: #000;
+}
+.container{
+   position:absolute;
+   width: 100%;
+   height: 100%
+}
+#playbtn{
+    display: -webkit-box;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 28px;
+    height: 28px;
+    opacity: 0.65;
+    cursor: pointer;
+    z-index: 10;
+}
+#pageloading{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.pegecontent{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.viewport{
+   width: 100%;
+   height: 100%;
+   display: -webkit-box;
+   overflow: hidden;
+   -webkit-transform: translate3d(0,0,0);
+   backface-visibility: hidden;
+   position: relative;
+}
+.viewport-ver{
+    width: 100%;
+    height: 100%;
+    /* display: -webkit-box; */
+    display:flex;
+    flex-direction:column;
+    overflow: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    position: relative;
+ }
+.pageview{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    width: 100%;
+    height: 100%;
+}
+.pagenumber{
+    display: -webkit-box;
+    position: absolute;
+    bottom: 5%;
+    left: 35%;
+    height: 1em;
+    width: 30%;
+}
+.pagenumber-ver{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    display: -webkit-box;
+    position: absolute;
+    right: -6%;
+    top: 45%;
+    height: 1em;
+    width: 30%;
+}
+.pagenumber div{
+    -webkit-box-flex: 1;
+    width: 0;
+    position: relative;
+}
+.pagenumber .now:after {
+    background: rgba(255,255,255,1) !important;
+}
+.pagenumber div:after{
+    content: "";
+    width: 6px;
+    height: 6px; 
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -3px;
+}
+.pagenumber-ver div{
+    -webkit-box-flex: 1;
+    width: 0;
+    position: relative;
+}
+.pagenumber-ver .now:after {
+    background: rgba(255,255,255,1) !important;
+}
+.pagenumber-ver div:after{
+    content: "";
+    width: 6px;
+    height: 6px; 
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -3px;
+}
+h3{
+    text-align: center;
+    font-family: Microsoft YaHei,Arial;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: normal;
+    padding: 1em 0;
+    margin: 0;
+}
+button{
+    width: 40%;
+    margin: auto;
+    height: 3em;
+    background: #fff6de;
+    line-height: 3rem;
+    color: #000;
+    padding: 0;
+    border: none;
+    display: block;
+}
+.intro-copy{
+    box-sizing: border-box;
+    max-width: 88vw;
+    padding: 18px 32px 16px;
+    border: 1px solid rgba(80, 44, 4, .15);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .15);
+    box-shadow: 0 8px 28px rgba(80, 44, 4, .08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.intro-copy h1,
+.intro-copy h2{
+    margin: 0;
+}
+.intro-copy h3{
+    margin: 0;
+    padding: .45em 0 0;
+}
+@media screen and (max-width: 360px) {
+    html,body{font-size: 15px}
+}
+@media screen and (min-width: 360px) and (max-width: 400px) {
+    html,body{font-size: 16px}
+}
+@media screen and (min-width: 400px) and (max-width: 460px) {
+    html,body{font-size: 18px}
+}
+@media screen and (min-width: 460px){
+    html,body{font-size: 24px}
+}
+
+/* 抽屉式流动相册 */
+.album-page{
+    position: relative;
+    flex: 0 0 100%;
+    overflow: hidden;
+    color: #fff;
+    background:
+        radial-gradient(circle at 22% 18%, rgba(235, 168, 160, .28), transparent 34%),
+        radial-gradient(circle at 82% 75%, rgba(130, 151, 190, .24), transparent 35%),
+        linear-gradient(145deg, #19171b 0%, #0e1015 55%, #17151a 100%);
+}
+.album-page::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .2;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+}
+.album-glow{
+    position: absolute;
+    width: 38vw;
+    height: 38vw;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.album-glow-one{ left: -16vw; top: -18vw; }
+.album-glow-two{ right: -20vw; bottom: -18vw; }
+.drawer-album{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 6vh 5vw 9vh;
+}
+.album-heading{
+    position: absolute;
+    top: 6vh;
+    left: 7vw;
+    text-align: left;
+}
+.album-kicker{
+    display: block;
+    margin-bottom: .35rem;
+    color: rgba(255,255,255,.55);
+    font: 500 .48rem/1.2 Arial, sans-serif;
+    letter-spacing: .32em;
+}
+.album-heading h1{
+    margin: 0;
+    color: #fff;
+    font: 400 1.35rem/1.15 "Microsoft YaHei", "PingFang SC", sans-serif;
+    letter-spacing: .13em;
+}
+.album-stage{
+    position: relative;
+    width: 100%;
+    height: min(54vh, 500px);
+    margin-top: 4vh;
+    outline: none;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.album-track{
+    position: absolute;
+    inset: 0;
+}
+.album-card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(43vw, 360px);
+    height: min(48vh, 430px);
+    margin: 0;
+    padding: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 11px;
+    background: rgba(245,241,235,.92);
+    box-shadow: 0 18px 60px rgba(0,0,0,.45);
+    cursor: pointer;
+    opacity: calc(1 - var(--distance) * .14);
+    transform:
+        translate(-50%, -50%)
+        translateX(calc(var(--offset) * 44%))
+        rotate(calc(var(--offset) * 1.7deg))
+        scale(calc(1 - var(--distance) * .07));
+    transform-origin: center 110%;
+    transition: transform .72s cubic-bezier(.22,.8,.25,1), opacity .55s ease, filter .55s ease;
+    filter: saturate(calc(1 - var(--distance) * .12)) brightness(calc(1 - var(--distance) * .08));
+    will-change: transform, opacity;
+}
+.album-card img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-orientation: from-image;
+    border-radius: 7px;
+    pointer-events: none;
+}
+.album-card.is-active{
+    border-color: rgba(255,255,255,.72);
+    box-shadow: 0 24px 75px rgba(0,0,0,.58), 0 0 0 1px rgba(255,255,255,.1);
+    filter: none;
+}
+.album-card.is-hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+.album-nav{
+    position: absolute;
+    z-index: 40;
+    top: 50%;
+    width: 42px;
+    height: 42px;
+    margin: -21px 0 0;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 50%;
+    background: rgba(7,8,11,.55);
+    color: #fff;
+    font: 300 30px/38px Georgia, serif;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background .2s ease, transform .2s ease;
+}
+.album-nav:hover{ background: rgba(255,255,255,.18); transform: scale(1.07); }
+.album-prev{ left: 4vw; }
+.album-next{ right: 4vw; }
+.album-meta{
+    width: min(70vw, 620px);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.2vh;
+}
+.album-caption{
+    margin: 0;
+    color: rgba(255,255,255,.92);
+    font: 400 .72rem/1.5 "Microsoft YaHei", "PingFang SC", sans-serif;
+    letter-spacing: .08em;
+}
+.album-counter{
+    flex: none;
+    color: rgba(255,255,255,.42);
+    font: 400 .48rem/1.2 Arial, sans-serif;
+    letter-spacing: .1em;
+}
+.album-counter b{
+    color: rgba(255,255,255,.9);
+    font-size: .72rem;
+    font-weight: 400;
+}
+.album-progress{
+    width: min(70vw, 620px);
+    height: 1px;
+    margin-top: .55rem;
+    overflow: hidden;
+    background: rgba(255,255,255,.16);
+}
+.album-progress span{
+    display: block;
+    width: 0;
+    height: 100%;
+    background: rgba(255,255,255,.85);
+    transition: width .65s ease;
+}
+
+@media screen and (max-width: 700px){
+    .drawer-album{ padding: 8vh 0 10vh; }
+    .album-heading{ top: 7vh; left: 7vw; }
+    .album-heading h1{ font-size: 1.35rem; }
+    .album-stage{ height: 50vh; margin-top: 6vh; }
+    .album-card{
+        width: 70vw;
+        height: min(43vh, 430px);
+        padding: 5px;
+        transform:
+            translate(-50%, -50%)
+            translateX(calc(var(--offset) * 38%))
+            rotate(calc(var(--offset) * 1.5deg))
+            scale(calc(1 - var(--distance) * .075));
+    }
+    .album-nav{ width: 36px; height: 36px; margin-top: -18px; font-size: 27px; line-height: 32px; }
+    .album-prev{ left: 3vw; }
+    .album-next{ right: 3vw; }
+    .album-meta, .album-progress{ width: 82vw; }
+    .album-caption{ font-size: .78rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .album-card, .album-progress span{ transition-duration: .01ms; }
+}
+

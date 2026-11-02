@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+    <title>Happy Birthday To 卞卞</title>
+    <meta name="viewport" charset="utf-8" content="width=device-width,
+    initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=1.0">
+    <link rel="stylesheet" href="css/app.css?v=5">
+    <script src="js/app.js?v=5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js" defer></script>
+    <audio id="bgm" src="music/bgm.mp3" loop preload="auto"></audio>
+</head>
+
+<body>
+    <div class="container">
+        <div id="pageloading">
+            <center>
+                <img src="images/loading.gif" style="width: 20%;">
+                <h2 style="font-size: 10px;color: #FFFFFF">Loading...</h2>
+            </center>
+        </div>        
+        <div id="viewport" class="viewport">
+            <div class="pageview"
+                style="background-image: url(images/img01.jpg); background-position: center center; background-size: cover; background-repeat: no-repeat; width: 100%; height: 100%;">
+                <center class="pagecontent intro-copy">
+                    <h1 style="font-size: 50px;color: #502c04">Happy</h1>
+                    <h2 style="font-size: 45px;color: #502c04">Birthday</h2>
+                    <h3 style="font-size: 30px;color: #502c04">To : 卞卞</h3>
+                </center>
+            </div>
+            <div class="pageview"
+                style="background-image: url(images/img02.jpg); background-position: center center; background-size: cover; background-repeat: no-repeat; width: 100%; height: 100%;">
+                <center class="pagecontent">
+                    <h1 style="font-size: 30px;color: #FFFFFF">"初见吗？说实话记忆已经遗忘了"</h1>
+                    <h2 style="font-size: 20px;color: #FFFFFF">2022年 12月<br>“幸运的在杭高第一年就看到雪”</h2>
+                </center>
+            </div>
+            <div class="pageview"
+                style="background-image: url(images/img03.jpg); background-position: center center; background-size: cover; background-repeat: no-repeat; width: 100%; height: 100%;">
+                <center class="pagecontent">
+                    <h1 style="font-size: 30px;color: #FFFFFF">"快乐的高二，那时候关系应该很好了"</h1>
+                    <h2 style="font-size: 20px;color: #FFFFFF">2023年~2024年<br>"樱花文会、科技节、文艺汇演......"</h2>
+                </center>
+            </div>
+            <div class="pageview"
+                style="background-image: url(images/img05.jpg); background-position: center center; background-size: cover; background-repeat: no-repeat; width: 100%; height: 100%;">
+                <center class="pagecontent">
+                    <h1 style="font-size: 30px;color: #FFFFFF">"高三"</h1>
+                    <h2 style="font-size: 20px;color: #FFFFFF">
+                        2025年<br>这一年拍了好多照片<br>"感觉过的有点太开心了啊"<br><br><br>不误正业ing^_^</h2>
+                </center>
+            </div>
+            <div class="pageview album-page" aria-label="照片回忆相册">
+                <div class="album-glow album-glow-one"></div>
+                <div class="album-glow album-glow-two"></div>
+                <section class="drawer-album" aria-roledescription="carousel" aria-label="抽屉式照片相册">
+                    <div class="album-heading">
+                        <span class="album-kicker">OUR MOMENTS</span>
+                        <h1>记忆的抽屉</h1>
+                    </div>
+                    <div class="album-stage" id="albumStage" tabindex="0" aria-label="点击照片或左右滑动切换">
+                        <div class="album-track" id="albumTrack"></div>
+                        <button class="album-nav album-prev" type="button" aria-label="上一张照片">&#8249;</button>
+                        <button class="album-nav album-next" type="button" aria-label="下一张照片">&#8250;</button>
+                    </div>
+                    <div class="album-meta">
+                        <p class="album-caption">翻了一个小时的照片嘿！</p>
+                        <span class="album-counter"><b id="albumCurrent">01</b> / <span id="albumTotal">26</span></span>
+                    </div>
+                    <div class="album-progress" aria-hidden="true"><span id="albumProgress"></span></div>
+                </section>
+            </div>
+            <div class="pageview"
+                style="background-image: url(images/img08.jpg); background-position: center center; background-size: cover; background-repeat: no-repeat; width: 100%; height: 100%;">
+                <center style="margin-top: 20%">
+                    <h1 style="font-size: 30px;color: #FFFFFF">"生日快乐!"</h1>
+                    <h2 style="font-size: 20px;color: #FFFFFF">20岁的卞卞
+                        你好<br>我是小郑<br><br>谢谢这么长时间的关心和陪伴<br><br>一点心意<br>希望你喜欢<br>^_^</h2>
+                    <h4 style="font-size: 16px;color: #FFFFFF">2026-11-5</h4>
+                </center>
+            </div>
+        </div>
+        <div id="pagenumber" class="pagenumber">
+            <div></div>
+            <div></div>
+        </div>
+        <a href="javascript:play();" aria-label="播放或暂停背景音乐"><img src="images/pause.png" id="playbtn" alt="播放或暂停背景音乐"></a>
+    </div>
+</body>
+
+</html>
